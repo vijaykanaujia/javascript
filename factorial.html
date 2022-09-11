@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorial Number</title>
+  </head>
+  <body>
+    <script>
+      const n = 6;
+      let factorial = [];
+      for (let i = n; i >= 1; i--) {
+        factorial.push(i);
+      }
+      const result = factorial.reduce((acc, curr) => acc * curr, 1);
+      console.log(n + "!=" + factorial.join("*") + "=" + result);
+
+      const input = [
+        ["a", "b", "c"],
+        ["c", "d", "f"],
+        ["d", "f", "g"],
+      ];
+      const output = input.flat().reduce((acc, curr) => {
+        if(acc[curr]){
+            acc[curr] += 1; 
+        }else{
+            acc[curr] = 1;
+        }
+        return acc;
+      }, {});
+      console.log(output);
+    </script>
+  </body>
+</html>

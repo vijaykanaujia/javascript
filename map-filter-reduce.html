@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Filter Reduce</title>
+  </head>
+  <body>
+    <script>
+      var users = [
+        { first_name: "vijay", last_name: "kanaujia", age: 27 },
+        { first_name: "ajay", last_name: "nishad", age: 29 },
+        { first_name: "shashank", last_name: "dubey", age: 26 },
+        { first_name: "ashutosh", last_name: "sharma", age: 30 },
+        { first_name: "ashutosh", last_name: "maurya", age: 24 },
+      ];
+
+      //get full name
+      const fullname = users.map((fname) => {
+        return fname.first_name + " " + fname.last_name;
+      });
+      console.log("Map use");
+      console.log(fullname);
+
+      //get user whoes age less than all
+      const younger_user = users.reduce((acc, curr) => {
+        if (acc < curr.age) {
+          return acc;
+        } else {
+          return curr.age;
+        }
+      });
+      console.log("younger user");
+      console.log(younger_user);
+
+      //get user whoes age less than all
+      const older_user = users.reduce((acc, curr) => {
+        if (acc > curr.age) {
+          return acc;
+        } else {
+          return curr.age;
+        }
+      });
+      console.log("older user");
+      console.log(older_user);
+    </script>
+  </body>
+</html>

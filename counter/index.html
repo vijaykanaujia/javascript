@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+
+    <style>
+      .counter {
+        display: flex;
+      }
+      .counter span#increment,
+      .counter span#decrement {
+        display: block;
+        color: white;
+        padding: 4px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .counter span#increment {
+        background-color: green;
+      }
+
+      .counter span#decrement {
+        background-color: red;
+      }
+    </style>
+    <script>
+      function counter() {
+        var private_counter = 0;
+        function changeBy(val) {
+          private_counter += val;
+        }
+
+        return {
+          increment() {
+            changeBy(1);
+          },
+
+          decrement() {
+            changeBy(-1);
+          },
+
+          value(){
+            return private_counter;
+          }
+        };
+      }
+
+      function getValue(){
+        document.getElementById('counter_value').value = counter_func.value();
+      }
+      window.onload = function(){
+        var counter_func = counter();
+        document.getElementById('counter_value').value = counter_func.value();
+
+        counter_func.increment();
+        console.log(counter_func.value());
+        counter_func.increment();
+        console.log(counter_func.value());
+        counter_func.decrement();
+        console.log(counter_func.value());
+      }
+
+      var xx = function xyz(){
+        console.log('hello anonmus func');
+      }
+        xx();
+    </script>
+  </head>
+  <body>
+    <div>
+      <div class="counter">
+        <span onclick="counter_func.increment();getValue();" id="increment">+</span>
+        <input type="text" id="counter_value" />
+        <span onclick="counter_func.decrement();getValue();" id="decrement">-</span>
+      </div>
+    </div>
+  </body>
+</html>
