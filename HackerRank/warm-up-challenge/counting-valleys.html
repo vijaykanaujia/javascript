@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Vallyes</title>
+</head>
+<body>
+    <script>
+
+        function countingValleys(steps, path){
+            let altitude = 0;
+            let valleys = 0;
+            for(let i = 0; i < steps; i++){
+                altitude = (path[i] == 'U') ? altitude + 1 : altitude - 1;
+                if(altitude == 0 && path[i] == 'U'){
+                    valleys++;
+                }
+            }
+            return valleys;
+        }
+        console.log(countingValleys(8, "UDDDUDUU"));
+    </script>
+</body>
+</html>

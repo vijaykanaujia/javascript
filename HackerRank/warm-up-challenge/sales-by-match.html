@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales by match</title>
+</head>
+<body>
+    <script>
+        let ar = [10, 20, 20, 10, 10, 30, 50, 10, 20];
+        ar = ar.sort();
+        console.log(ar);
+        let count = 0;
+        let previous = 0;
+        ar.forEach(val => {
+            if(val == previous){
+                count++;
+                previous = 0;
+            }else{
+                previous = val;
+            }
+        });
+        console.log(count);
+    </script>
+</body>
+</html>
