@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jumping On the clouds</title>
+  </head>
+  <body>
+    <script>
+      function jumpingOnClouds(c) {
+        // Write your code here
+        let jum_count = 0;
+        if (typeof(c) !== "object" || !c.length) {
+          return jum_count;
+        }
+        for (let i = 2; i <= c.length; i += 2) {
+          if (c[i] == "undefined" || c[i] !== 0) {
+            i--;
+          }
+          jum_count++;
+        }
+        return jum_count;
+      }
+      console.log(jumpingOnClouds([0, 0, 0, 1, 0, 0]));
+    </script>
+  </body>
+</html>
