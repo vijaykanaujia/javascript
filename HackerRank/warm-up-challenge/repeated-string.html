@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repeated String</title>
+  </head>
+  <body>
+    <script>
+      function repeatedString(s, n) {
+        let a = 0;
+        for (let i = 0; i < s.length; i++) if (s[i] == "a") a++;
+        let repeated_string = Math.floor(n / s.length);
+        repeated_string *= a;
+        if (n % s.length) {
+          let r = n % s.length;
+          for (let i = 0; i < r; i++) if (s[i] == "a") repeated_string++;
+        }
+        return repeated_string;
+      }
+      console.log(repeatedString("a", 1000000000000));
+    </script>
+  </body>
+</html>
