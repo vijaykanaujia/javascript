@@ -16,16 +16,29 @@
       const result = factorial.reduce((acc, curr) => acc * curr, 1);
       console.log(n + "!=" + factorial.join("*") + "=" + result);
 
+      // another way find factorial
+      const math = {
+        factit: function factorial(n) {
+          console.log(n);
+          if (n <= 1) {
+            return 1;
+          }
+          return n * factorial(n - 1);
+        },
+      };
+
+      console.log(math.factit(n));
+
       const input = [
         ["a", "b", "c"],
         ["c", "d", "f"],
         ["d", "f", "g"],
       ];
       const output = input.flat().reduce((acc, curr) => {
-        if(acc[curr]){
-            acc[curr] += 1; 
-        }else{
-            acc[curr] = 1;
+        if (acc[curr]) {
+          acc[curr] += 1;
+        } else {
+          acc[curr] = 1;
         }
         return acc;
       }, {});

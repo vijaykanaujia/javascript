@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Left Array Rotation</title>
+  </head>
+  <body>
+    <script>
+      function rotLeft(a, d) {
+        let count = a.length;
+        let array = [];
+        for (let i = 0; i < count; i++) {
+          array[i] = a[(i + d) % count];
+        }
+        return array;
+      }
+      console.log(rotLeft([1, 2, 3, 4, 5], 4));
+    </script>
+  </body>
+</html>
