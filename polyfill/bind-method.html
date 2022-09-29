@@ -1,0 +1,26 @@
+<script>
+  const myName = {
+    firstName: "Vijay",
+    lastName: "Kanaujia",
+  };
+
+  function profileCard(city, country) {
+    console.log(`${this.firstName} ${this.lastName} ${city} - ${country}`);
+  }
+
+  const result = profileCard.bind(myName, "Lucknow");
+  result("India");
+  Function.prototype.myBind = function (...args) {
+    var callback = this,
+      ctx = args.splice(1);
+    return function (...a) {
+      callback.call(args[0], ...[...ctx, ...a]);
+    };
+  };
+  const myName2 = {
+    firstName: "Ajay",
+    lastName: "Bari",
+  };
+  const result2 = profileCard.myBind(myName2, "Agra");
+  result2("India");
+</script>
