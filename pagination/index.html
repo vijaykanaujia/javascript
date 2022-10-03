@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Pagination</title>
+    <style>
+      button {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: grid">
+      <button type="button" onclick="up()">Up</button>
+      <div id="result"></div>
+      <button type="button" onclick="down()">Down</button>
+    </div>
+    <script>
+      var data = [1, 2, 3, 4, 5, 6, 7];
+      var item_per_page = 3;
+      var current_page = 1;
+
+      var pagination = {
+        total: data.length,
+        per_page: item_per_page,
+        current_page: current_page,
+        last_page: Math.ceil(data.length / item_per_page),
+        from: (current_page - 1) * item_per_page + 1,
+        to: current_page * item_per_page,
+      };
+
+      changePage();
+      function changePage() {
+        var temp = [];
+        for (let i = pagination.from; i <= pagination.to; i++) {
+          temp.push(data[i - 1]);
+        }
+        document.getElementById("result").innerHTML = temp.filter(x => x);
+        console.log(pagination);
+      }
+
+      function up() {
+        if (pagination.from == 1) {
+          return false;
+        }
+
+        pagination.current_page -= 1;
+        pagination.from = (pagination.current_page - 1) * item_per_page + 1;
+        pagination.to = pagination.current_page * item_per_page;
+
+        changePage();
+      }
+
+      function down() {
+        if (pagination.last_page == pagination.current_page) {
+          return false;
+        }
+
+        pagination.current_page += 1;
+
+        pagination.from = (pagination.current_page - 1) * item_per_page + 1;
+        pagination.to = pagination.current_page * item_per_page;
+
+        changePage();
+      }
+      console.log(pagination);
+    </script>
+  </body>
+</html>

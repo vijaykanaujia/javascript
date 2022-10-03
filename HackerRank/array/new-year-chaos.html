@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Year Chaos</title>
+  </head>
+  <body>
+    <script>
+      function minimumBribes(q) {
+        // Write your code here
+        var count = 0;
+        var flag = false;
+
+        for (let i = q.length; i >= 1; i--) {
+          if (q[i - 1] != i) {
+            if (i - 2 >= 0 && q[i - 2] == i) {
+              let swap1 = q[i - 1];
+              let swap2 = q[i - 2];
+              q[i - 1] = swap2;
+              q[i - 2] = swap1;
+              count++;
+            } else if (i - 3 >= 0 && q[i - 3] == i) {
+              let swap1 = q[i - 1];
+              let swap2 = q[i - 2];
+              let swap3 = q[i - 3];
+              q[i - 1] = swap3;
+              q[i - 2] = swap1;
+              q[i - 3] = swap2;
+              count += 2;
+            } else {
+              flag = true;
+              break;
+            }
+          }
+        }
+        return flag ? "Too chaotic\n" : count + "\n";
+      }
+      console.log(minimumBribes([[2, 1, 5, 3, 4]]));
+    </script>
+  </body>
+</html>
