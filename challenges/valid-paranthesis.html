@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array::2D Array - DS Hourglass</title>
+  </head>
+  <body>
+
+	<h2>Alogorith</h2>
+	<ul>
+		<li>Declare an empty stack.</li>
+		<li>Push an opening parenthesis on top of the stack.</li>
+		<li>In case of a closing bracket, check if the stack is empty.</li>
+		<li>If not, pop in a closing parenthesis if the top of the stack contains the corresponding opening parenthesis.</li>
+		<li>If the parentheses are valid,​ then the stack will be empty once the input string finishes.</li>
+	</ul>	
+	<h2>Implementation</h2>
+	<code>
+      	function testString(str){
+        	stack = [];
+        	for(var i=0;i < str.length;i++){
+            	if(str[i] == '(' || str[i] == '{' || str[i] == '['){
+                	stack.push(str[i]);
+            	}else{
+                	var top = stack[stack.length - 1];
+                	if(str[i] == ')' && top == '(' || 
+                    	str[i] == '}' && top == '{' ||
+                    	str[i] == ']' && top == '[') {
+                    	stack.pop();
+                	}else{
+                    return false;
+                	}
+            	}
+        	}
+        	return stack.length ? false : true;
+    		}
+    		console.log(testString('()[]{}') ? 'valid': 'invalid');
+	</code>
+
+    <script>
+      function testString(str){
+        stack = [];
+        for(var i=0;i < str.length;i++){
+            if(str[i] == '(' || str[i] == '{' || str[i] == '['){
+                stack.push(str[i]);
+            }else{
+                var top = stack[stack.length - 1];
+                if(str[i] == ')' && top == '(' || 
+                    str[i] == '}' && top == '{' ||
+                    str[i] == ']' && top == '[') {
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        return stack.length ? false : true;
+    }
+    console.log(testString('()[]{}') ? 'valid': 'invalid');
+    </script>
+  </body>
+</html>
